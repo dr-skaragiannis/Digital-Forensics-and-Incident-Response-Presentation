@@ -1,0 +1,291 @@
+@import "tailwindcss";
+@import "@fontsource-variable/manrope/wght.css";
+
+@theme {
+  --font-sans: "Manrope Variable", "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-ddo: #f35422;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #000;
+  font-family: var(--font-sans);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.mono {
+  font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- Slide tones (dd.nyc palette) ---------- */
+.slide {
+  --acc: #f35422;
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+}
+.tone-dark {
+  --bg: #050505;
+  --fg: #ffffff;
+  --mut: #cbcbcb;
+  --dim: #9a9a9a;
+  --card: #111111;
+  --card2: #1a1a1a;
+  --line: #383838;
+  --onacc: #000000;
+  --code: #0b0b0b;
+}
+.tone-light {
+  --bg: #e4e4e4;
+  --fg: #000000;
+  --mut: #383838;
+  --dim: #575757;
+  --card: #ffffff;
+  --card2: #eeeeee;
+  --line: #bdbdbd;
+  --onacc: #000000;
+  --code: #050505;
+}
+.tone-orange {
+  --bg: #f35422;
+  --fg: #000000;
+  --mut: #1a1a1a;
+  --dim: #3a1207;
+  --card: #000000;
+  --card2: #111111;
+  --line: rgba(0, 0, 0, 0.35);
+  --acc: #000000;
+  --onacc: #ffffff;
+  --code: #050505;
+}
+.slide {
+  background: var(--bg);
+  color: var(--fg);
+}
+.slide .acc {
+  color: var(--acc);
+}
+.tone-orange .acc {
+  color: #fff;
+}
+.slide .mut {
+  color: var(--mut);
+}
+.slide .dim {
+  color: var(--dim);
+}
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 28px;
+  padding: 28px 32px;
+  min-width: 0;
+}
+.tone-orange .card {
+  color: #fff;
+  border-color: #000;
+}
+.tone-orange .card .mut {
+  color: #cbcbcb;
+}
+.tone-light .card {
+  border-color: transparent;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.pill-acc {
+  background: var(--acc);
+  color: var(--onacc);
+  border-color: var(--acc);
+}
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--acc);
+  display: inline-block;
+}
+.ttl {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+.foot {
+  background: var(--acc);
+  color: var(--onacc);
+  border-radius: 22px;
+  padding: 16px 30px;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.25;
+}
+.tone-orange .foot {
+  background: #000;
+  color: #fff;
+}
+.numc {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--acc);
+  color: var(--onacc);
+  font-weight: 800;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.tone-orange .numc {
+  background: #000;
+  color: #fff;
+}
+.hair {
+  border-bottom: 2px solid var(--line);
+}
+.bgdots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 2px, transparent 2px);
+  background-size: 40px 40px;
+}
+.tone-light .bgdots {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 2px, transparent 2px);
+}
+.tone-orange .bgdots {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 2px, transparent 2px);
+}
+.ghost {
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.09);
+  color: transparent;
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+}
+.tone-light .ghost {
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.08);
+}
+.tone-orange .ghost {
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.15);
+}
+.term {
+  background: var(--code);
+  border: 2px solid #383838;
+  border-radius: 24px;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Animations */
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.slide-anim {
+  animation: slidein 0.35s ease-out both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.5s ease-out both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1.5px solid #383838;
+  background: rgba(10, 10, 10, 0.85);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.15s;
+}
+.btn:hover {
+  background: #f35422;
+  border-color: #f35422;
+  color: #000;
+}
+
+/* Εμβάθυνση note strip */
+.note {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  background: var(--card2);
+  border: 2px solid var(--line);
+  border-left: 8px solid #f35422;
+  border-radius: 22px;
+  padding: 16px 28px;
+  font-size: 23px;
+  line-height: 1.38;
+  color: var(--fg);
+}
+.note .nl {
+  flex: none;
+  margin-top: 3px;
+  background: #f35422;
+  color: #000;
+  border-radius: 999px;
+  padding: 4px 16px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Τονισμένο κείμενο μέσα σε πορτοκαλί/μαύρη γραμμή: αντίθεση με το φόντο */
+.slide .foot .acc,
+.slide .foot b {
+  color: var(--onacc);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+.slide .pill-acc .acc,
+.slide .numc .acc {
+  color: inherit;
+}
